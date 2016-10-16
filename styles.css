@@ -1,0 +1,75 @@
+
+    body {
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    article {
+        height: 100vh;
+        width: 100vw;
+        max-width: 30rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 2rem 0;
+        box-sizing: border-box;
+        background-image: linear-gradient(to right, gray, gray);
+        background-size: 0.5rem 100vh;
+        background-position: 2.25rem 0;
+        background-repeat: repeat-y;
+    }
+
+    user {
+        position: relative;
+        line-height: 2rem;
+        padding: 0.2rem 0.75rem 0;
+        background-color: #1f1f1f;
+        font-family: sans-serif;
+        color: white;
+        display: inline-block;
+        width: auto;
+        margin-left: 5rem;
+    }
+
+    user.self:after {
+        content: " ";
+        display: inline-block;
+        position: absolute;
+        right: -1rem;
+        top: 0.9rem;
+        background-color: red;
+        height: 8px;
+        width: 8px;
+        border-radius: 50%;
+    }
+
+    user arrow {
+        display: inline-block;
+        position: absolute;
+        left: -0.5rem;
+        top: 0.65rem;
+        height: 0;
+        width: 0;
+        border-right: 0.5em solid #1f1f1f;
+        border-top: 0.5em solid transparent;
+        border-bottom: 0.5em solid transparent;
+    }
+
+    user altitude {
+        background-color: white;
+        box-shadow: 0 0.5rem 0.5rem 0 white,
+                    0 -0.5rem 0.5rem 0 white;
+        position: absolute;
+        font-weight: bold;
+        display: inline-block;
+        left: -4.5rem;
+        color: black;
+        top: 0.5rem;
+        padding-top: 0.2rem;
+        width: 4rem;
+        text-align: center;
+        line-height: 1rem;
+    }
