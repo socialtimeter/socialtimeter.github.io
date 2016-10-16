@@ -21,7 +21,7 @@ if (window.WebSocket && navigator.geolocation) {
             document.body.classList.remove('loading')
             if (pos.coords.altitudeAccuracy != 0) {
                 document.body.classList.remove('no-altimeter')
-                console.log(pos.coords.altitude)
+                console.log(pos.coords)
                 send(client, pos.coords.altitude)
             } else {
                 document.body.classList.add('no-altimeter')
