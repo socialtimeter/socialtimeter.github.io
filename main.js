@@ -17,7 +17,6 @@ if (window.WebSocket && navigator.geolocation) {
     client.addEventListener('open', function(message) {
         console.log('in:  ' + JSON.stringify(message))
         send(client, 'id' + Math.floor((Math.random() * 1000000)))
-        send(client, '234')
         navigator.geolocation.watchPosition(function(pos) {
             document.body.classList.remove('loading')
             document.body.querySelector('article').appendChild(document.createTextNode(JSON.stringify(pos)))
