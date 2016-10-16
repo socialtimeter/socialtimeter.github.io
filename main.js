@@ -25,7 +25,6 @@ if (window.WebSocket && navigator.geolocation) {
         }
         navigator.geolocation.watchPosition(function(pos) {
             document.body.classList.remove('loading')
-            document.body.querySelector('article').appendChild(document.createTextNode(JSON.stringify(pos)))
             if (pos.coords.altitudeAccuracy != 0 && pos.coords.altitudeAccuracy != null) {
                 document.body.classList.remove('no-altimeter')
                 send(client, Math.round(pos.coords.altitude))
