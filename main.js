@@ -27,7 +27,9 @@ if (window.WebSocket && navigator.geolocation) {
             } else {
                 document.body.classList.add('no-altimeter')
             }
-        }, null, {'timeout': 5000})
+        }, function(err) {
+            console.err(err)
+        }, {'timeout': 5000})
     })
     client.addEventListener('message', function(message) {
         var data = JSON.parse(message.data)
