@@ -1,4 +1,4 @@
-if (window.WebSocket) {
+if (window.WebSocket && navigator.geolocation) {
     var client = new WebSocket('wss://socialtimeter-pabjn.rhcloud.com:8443/')
 
     function send(client, text) {
@@ -16,7 +16,17 @@ if (window.WebSocket) {
     })
     client.addEventListener('open', function(message) {
         console.log('in:  ' + JSON.stringify(message))
-        send(client, '1234')
+        send(client, 'id' + Math.floor((Math.random() * 1000000)))
+        navigator.geolocation.watchPosition(function(pos) {
+            document.body.classList.remove('loading')
+            if (pos.coords.altitudeAccuracy != 0) {
+                document.body.classList.remove('no-altimeter')
+                console.log(pos.coords.altitude)
+                send(client, pos.coords.altitude)
+            } else {
+                document.body.classList.add('no-altimeter')
+            }
+        })
     })
     client.addEventListener('message', function(message) {
         var data = JSON.parse(message.data)
@@ -38,8 +48,9 @@ if (window.WebSocket) {
         el.querySelector('name').innerText = data.name
         realign()
     })
+    document.body.classList.add('loading')
 } else {
-    document.body.classList.add('nosocket')
+    document.body.classList.add('no-socket')
 }
 
 function realign() {
