@@ -84,15 +84,15 @@ user arrow {
 
 user altitude {
     background-color: white;
-    box-shadow: 0 0.5rem 0.5rem 0 white,
-                0 -0.5rem 0.5rem 0 white;
+    box-shadow: 0 0.5rem 0.25rem 0 white,
+                0 -0.5rem 0.25rem 0 white;
     position: absolute;
     font-weight: bold;
     display: inline-block;
     left: -4.5rem;
     color: black;
-    top: 0.5rem;
-    padding-top: 0.2rem;
+    top: 0.6rem;
+    padding-top: 0.05rem;
     width: 4rem;
     text-align: center;
     line-height: 1rem;
