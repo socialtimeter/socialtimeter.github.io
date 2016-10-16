@@ -19,9 +19,8 @@ if (window.WebSocket && navigator.geolocation) {
         send(client, 'id' + Math.floor((Math.random() * 1000000)))
         navigator.geolocation.watchPosition(function(pos) {
             document.body.classList.remove('loading')
-            if (pos.coords.altitudeAccuracy != 0) {
+            if (pos.coords.altitudeAccuracy != 0 && pos.coords.altitudeAccuracy != null) {
                 document.body.classList.remove('no-altimeter')
-                console.log(pos.coords)
                 send(client, pos.coords.altitude)
             } else {
                 document.body.classList.add('no-altimeter')
