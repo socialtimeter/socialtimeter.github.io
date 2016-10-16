@@ -29,7 +29,7 @@ if (window.WebSocket && navigator.geolocation) {
             }
         }, function(err) {
             console.err(err)
-        }, {'timeout': 5000})
+        })
     })
     client.addEventListener('message', function(message) {
         var data = JSON.parse(message.data)
