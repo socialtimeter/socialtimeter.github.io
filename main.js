@@ -23,7 +23,7 @@ if (window.WebSocket && navigator.geolocation) {
             document.body.querySelector('article').appendChild(document.createTextNode(JSON.stringify(pos)))
             if (pos.coords.altitudeAccuracy != 0 && pos.coords.altitudeAccuracy != null) {
                 document.body.classList.remove('no-altimeter')
-                send(client, pos.coords.altitude)
+                send(client, Math.round(pos.coords.altitude))
             } else {
                 document.body.classList.add('no-altimeter')
             }
