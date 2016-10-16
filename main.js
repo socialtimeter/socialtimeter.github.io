@@ -18,16 +18,16 @@ if (window.WebSocket && navigator.geolocation) {
         console.log('in:  ' + JSON.stringify(message))
         send(client, 'id' + Math.floor((Math.random() * 1000000)))
         send(client, '234')
-        navigator.geolocation.watchPosition(function(pos) {
-            document.body.classList.remove('loading')
-            document.body.querySelector('article').appendChild(document.createTextNode(JSON.stringify(pos)))
-            if (pos.coords.altitudeAccuracy != 0 && pos.coords.altitudeAccuracy != null) {
-                document.body.classList.remove('no-altimeter')
-                send(client, pos.coords.altitude)
-            } else {
-                document.body.classList.add('no-altimeter')
-            }
-        }, null, {'timeout': 5000})
+        // navigator.geolocation.watchPosition(function(pos) {
+        //     document.body.classList.remove('loading')
+        //     document.body.querySelector('article').appendChild(document.createTextNode(JSON.stringify(pos)))
+        //     if (pos.coords.altitudeAccuracy != 0 && pos.coords.altitudeAccuracy != null) {
+        //         document.body.classList.remove('no-altimeter')
+        //         send(client, pos.coords.altitude)
+        //     } else {
+        //         document.body.classList.add('no-altimeter')
+        //     }
+        // }, null, {'timeout': 5000})
     })
     client.addEventListener('message', function(message) {
         var data = JSON.parse(message.data)
