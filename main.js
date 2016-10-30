@@ -62,6 +62,10 @@ if (window.WebSocket && navigator.geolocation) {
 
 function realign() {
     var list = document.body.querySelector('article')
+    var spacers = document.body.querySelectorAll('user')
+    for (var i = 0; i < spacers.length; i++) {
+        list.removeChild(spacers[i])
+    }
     var elements = document.body.querySelectorAll('user')
     var elArr = []
     for (var i = 0; i < elements.length; i++) {
